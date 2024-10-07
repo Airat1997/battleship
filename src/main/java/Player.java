@@ -4,8 +4,8 @@ import java.util.Scanner;
 
 public class Player {
     private String name;
-    public Board board;
-    public List<Ship> ships;
+    private Board board;
+    List<Ship> ships;
 
     public Player(String name) {
         this.name = name;
@@ -15,6 +15,14 @@ public class Player {
 
     public String getName() {
         return name;
+    }
+
+    public Board getBoard() {
+        return board;
+    }
+
+    public void setBoard(Board board) {
+        this.board = board;
     }
 
     public void placeShips() {
@@ -43,7 +51,7 @@ public class Player {
         System.out.println("Ваше поле:");
         board.printBoard();
         System.out.println("Поле противника:");
-        opponent.board.printBoard();
+        opponent.board.printOpponentBoard();
 
         System.out.print("Введите координаты выстрела (строка столбец): ");
         int row = scanner.nextInt();
@@ -68,13 +76,5 @@ public class Player {
             }
         }
         return true;
-    }
-
-    public Board getBoard() {
-        return board;
-    }
-
-    public void setBoard(Board board) {
-        this.board = board;
     }
 }

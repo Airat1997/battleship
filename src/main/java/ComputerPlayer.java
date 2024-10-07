@@ -8,22 +8,22 @@ public class ComputerPlayer extends Player {
     @Override
     public void takeTurn(Player opponent, Scanner scanner) {
         System.out.println("Ваше поле:");
-        board.printBoard();
+        getBoard().printBoard();
         System.out.println("Поле противника:");
-        opponent.board.printBoard();
+        opponent.getBoard().printOpponentBoard();
 
         int row, col;
         do {
             row = (int) (Math.random() * 10);
             col = (int) (Math.random() * 10);
-        } while (opponent.board.shoot(row, col));
+        } while (opponent.getBoard().shoot(row, col));
 
         System.out.println("Компьютер стреляет в " + row + ", " + col);
 
-        if (opponent.board.shoot(row, col)) {
+        if (opponent.getBoard().shoot(row, col)) {
             System.out.println("Попадание!");
             for (Ship ship : opponent.ships) {
-                if (opponent.board.isShipSunk(ship)) {
+                if (opponent.getBoard().isShipSunk(ship)) {
                     System.out.println("Корабль потоплен!");
                 }
             }

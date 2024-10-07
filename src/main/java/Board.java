@@ -73,4 +73,17 @@ public class Board {
             System.out.println();
         }
     }
+
+    public void printOpponentBoard() {
+        for (int i = 0; i < SIZE; i++) {
+            for (int j = 0; j < SIZE; j++) {
+                if (grid[i][j] == 'S') {
+                    System.out.print("- ");
+                } else {
+                    System.out.print(grid[i][j] + " ");
+                }
+            }
+            System.out.println();
+        }
+    }
 }
